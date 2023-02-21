@@ -1,7 +1,7 @@
 import { Page } from "@playwright/test";
 import { BasePage } from "./BasePage";
-import { Register } from "./common/Register";
-import {RegisterSuccess} from "./common/RegisterSuccess";
+import { Register } from "./components/Register";
+import {RegisterSuccess} from "./components/RegisterSuccess";
 
 export class RegisterPage extends BasePage {
   readonly register: Register;

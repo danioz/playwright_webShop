@@ -1,6 +1,6 @@
 import {Page} from "@playwright/test";
 import {BasePage} from "./BasePage";
-import {HeaderBar} from "./common/HeaderBar";
+import {HeaderBar} from "./components/HeaderBar";
 
 export class HomePage extends BasePage {
 

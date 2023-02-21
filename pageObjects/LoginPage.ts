@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { BasePage } from "./BasePage";
-import {ReturningCustomer} from "./common/ReturningCustomer";
+import {ReturningCustomer} from "./components/ReturningCustomer";
 
 export class LoginPage extends BasePage {
 
