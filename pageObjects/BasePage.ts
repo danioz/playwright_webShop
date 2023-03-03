@@ -8,11 +8,11 @@ export class BasePage {
     this.page = page;
   }
 
-  async navigate(path: string): Promise<void> {
+  async navigate(path: string) {
     await this.page.goto(path);
   }
 
   async openUrl() {
-    await this.page.goto(this.url);
+    await this.page.goto('');
   }
 }
