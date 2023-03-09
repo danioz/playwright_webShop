@@ -5,48 +5,60 @@ test.afterEach(async ({ homePage, page }) => {
   await homePage.headerBar.logOUt();
 });
 
-test("Successful register a new user with valid credentials", async ({ homePage, registerPage, page }) => {
-
+test("Successful register a new user with valid credentials", async ({
+  homePage,
+  registerPage,
+  page,
+}) => {
   //region Arrange
-  let userData: { fName: string, lName: string, email: string, password: string } = {
-    fName: '',
-    lName: '',
-    email: '',
-    password: ''
-  }
+  let userData: {
+    fName: string;
+    lName: string;
+    email: string;
+    password: string;
+  } = {
+    fName: "",
+    lName: "",
+    email: "",
+    password: "",
+  };
   await test.step("Prepare a new user data", async () => {
     userData.fName = faker.name.firstName();
     userData.lName = faker.name.lastName();
     userData.email = userData.fName + userData.lName + "@gmail.test.com";
-    userData.password = faker.random.alphaNumeric(10)
-  })
+    userData.password = faker.random.alphaNumeric(10);
+  });
   //endregion
 
   //region Act
   await test.step("Input a new user data", async () => {
     await homePage.headerBar.proceedToRegister();
     await registerPage.register.registerNewUser(
-        "M",
-        userData.fName,
-        userData.lName,
-        userData.email,
-        userData.password,
-        userData.password
+      "M",
+      userData.fName,
+      userData.lName,
+      userData.email,
+      userData.password,
+      userData.password
     );
   });
   //endregion
 
   //region Assert
   await test.step("Verify successful register of a new user", async () => {
-    await registerPage.registerSuccess.verifyRegistrationCompletion(userData.email);
+    await registerPage.registerSuccess.verifyRegistrationCompletion(
+      userData.email
+    );
     await homePage.headerBar.verifyLoggedUser(userData.email);
   });
   //endregion
 });
 
-
-test("Successful user login with valid credentials", async ({ homePage, loginPage, page }) => {
-
+test("Successful user login with valid credentials", async ({
+  homePage,
+  loginPage,
+  page,
+}) => {
   //region Arrange
   const login = "d.zet@gmail.test.com";
   const password = "Password1234!";
@@ -68,17 +80,17 @@ test("Successful user login with valid credentials", async ({ homePage, loginPag
   //endregion
 });
 
-test("Verify price of added items to a cart", async ({
+test.only("Verify price of added items to a cart", async ({
   homePage,
   loginPage,
   productsPage,
   shoppingCartPage,
   page,
 }) => {
-
   //region Arrange
   const login = "d.zet@gmail.test.com";
   const password = "Password1234!";
+  const category = "Apparel & Shoes";
   const productName = "Men's Wrinkle Free Long Sleeve";
   const sizeName = "Large";
   const theRandomNumber = Math.floor(Math.random() * 10) + 1;
@@ -91,6 +103,7 @@ test("Verify price of added items to a cart", async ({
 
   //region Act
   await test.step("Add item to a shopping cart", async () => {
+    await homePage.headerBar.selectCategory(category);
     await productsPage.selectProduct(productName);
     await productsPage.addQuantity(theRandomNumber.toString());
     await productsPage.selectSize(sizeName);
@@ -105,7 +118,6 @@ test("Verify price of added items to a cart", async ({
   //region Assert
   await test.step("Verify total price of added item", async () => {
     await shoppingCartPage.verifySubTotalPrice();
-
   });
   //endregion
 

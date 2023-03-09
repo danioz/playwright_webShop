@@ -15,7 +15,8 @@ const config: PlaywrightTestConfig = {
   use: {
     baseURL: "https://demowebshop.tricentis.com/",
     actionTimeout: 0,
-    trace: "on-first-retry",
+    trace: "retain-on-failure",
+    // video: "retain-on-failure",
   },
 
   projects: [
@@ -69,7 +70,7 @@ const config: PlaywrightTestConfig = {
     // },
   ],
 
-  outputDir: 'test-results/',
+  outputDir: "test-results/",
 
   /* Run your local dev server before starting the tests */
   // webServer: {
