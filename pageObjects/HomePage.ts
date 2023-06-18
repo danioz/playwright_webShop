@@ -1,15 +1,8 @@
-import {Page} from "@playwright/test";
-import {BasePage} from "./BasePage";
-import {HeaderBar} from "./components/HeaderBar";
+import { Page } from "@playwright/test";
+import { BasePage } from "./BasePage";
 
 export class HomePage extends BasePage {
-
-    readonly headerBar: HeaderBar;
-
-    constructor(page: Page) {
-        super(page);
-        this.headerBar = new HeaderBar(page)
-    }
-
-
+  constructor(page: Page) {
+    super(page);
+  }
 }
