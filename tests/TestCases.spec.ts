@@ -2,7 +2,7 @@ import { test } from "./BaseTest.spec";
 import { faker } from "@faker-js/faker";
 
 test.afterEach(async ({ homePage, page }) => {
-  await homePage.headerBar.logOUt();
+  await homePage.headerBar.logOut();
 });
 
 test("Successful register a new user with valid credentials", async ({
@@ -12,20 +12,21 @@ test("Successful register a new user with valid credentials", async ({
 }) => {
   //region Arrange
   let userData: {
-    fName: string;
-    lName: string;
-    email: string;
+    firstName: string;
+    lastName: string;
+    emailAddress: string;
     password: string;
   } = {
-    fName: "",
-    lName: "",
-    email: "",
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
     password: "",
-  };
+  }
+;
   await test.step("Prepare a new user data", async () => {
-    userData.fName = faker.name.firstName();
-    userData.lName = faker.name.lastName();
-    userData.email = userData.fName + userData.lName + "@gmail.test.com";
+    userData.firstName = faker.name.firstName();
+    userData.lastName = faker.name.lastName();
+    userData.emailAddress = userData.firstName + userData.lastName + "@gmail.test.com";
     userData.password = faker.random.alphaNumeric(10);
   });
   //endregion
@@ -35,9 +36,9 @@ test("Successful register a new user with valid credentials", async ({
     await homePage.headerBar.proceedToRegister();
     await registerPage.register.registerNewUser(
       "M",
-      userData.fName,
-      userData.lName,
-      userData.email,
+      userData.firstName,
+      userData.lastName,
+      userData.emailAddress,
       userData.password,
       userData.password
     );
@@ -47,9 +48,9 @@ test("Successful register a new user with valid credentials", async ({
   //region Assert
   await test.step("Verify successful register of a new user", async () => {
     await registerPage.registerSuccess.verifyRegistrationCompletion(
-      userData.email
+      userData.emailAddress
     );
-    await homePage.headerBar.verifyLoggedUser(userData.email);
+    await homePage.headerBar.verifyLoggedUser(userData.emailAddress);
   });
   //endregion
 });

@@ -7,7 +7,7 @@ export class RegisterSuccess {
         this.registerNotification = page.locator(".result");
     }
 
-    async verifyRegistrationCompletion(newEmail: string) {
+    async verifyRegistrationCompletion(newEmail: string): Promise<void> {
         await expect(this.registerNotification).toHaveText(
             "Your registration completed"
         );

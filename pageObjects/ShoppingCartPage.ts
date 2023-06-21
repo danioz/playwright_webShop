@@ -35,7 +35,7 @@ export class ShoppingCartPage extends BasePage {
     this.cartItems = page.locator("tr.cart-item-row");
   }
 
-  async verifySubTotalPrice() {
+  async verifySubTotalPrice(): Promise<void> {
     const unitPrice = Number(await this.firstProductUnitPrice.innerText());
     const quantity = Number(
       await this.firstProductQuantity.getAttribute("value")
@@ -43,19 +43,19 @@ export class ShoppingCartPage extends BasePage {
     const expectedSubTotal = unitPrice * quantity;
     const actualSubTotal = Number(await this.subTotalPrice.innerText());
 
-    await expect(actualSubTotal).toEqual(expectedSubTotal);
+    expect(actualSubTotal).toEqual(expectedSubTotal);
   }
 
-  async startCheckout() {
+  async startCheckout(): Promise<void> {
     await this.termOfServiceCheckbox.click();
     await this.checkoutButton.click();
   }
 
-  async verifyShoppingCartIsEmpty() {
+  async verifyShoppingCartIsEmpty(): Promise<void> {
     await expect(this.cartItems).not.toBeVisible();
   }
 
-  async removeFirstProduct() {
+  async removeFirstProduct(): Promise<void> {
     await this.removeFromCartFirstCheckbox.click();
     await this.updateShoppingCartButton.click();
   }

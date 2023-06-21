@@ -19,7 +19,7 @@ export class ProductsPage extends BasePage {
     this.addToCartButton = page.locator("input[id^='add-to-cart-button-']");
   }
 
-  async selectProduct(productName: string) {
+  async selectProduct(productName: string): Promise<void> {
     do {
       if (await this.isProductNameVisible(productName)) {
         await this.productTitle.filter({ hasText: productName }).click();
@@ -33,12 +33,12 @@ export class ProductsPage extends BasePage {
     );
   }
 
-  async addQuantity(howMany: string) {
+  async addQuantity(howMany: string): Promise<void> {
     await this.quantityInput.fill("");
     await this.quantityInput.fill(howMany);
   }
 
-  async selectSize(sizeName: string) {
+  async selectSize(sizeName: string): Promise<void> {
     switch (sizeName) {
       case "Large":
         await this.sizeList.selectOption("111");
@@ -54,11 +54,11 @@ export class ProductsPage extends BasePage {
     }
   }
 
-  async addToCart() {
+  async addToCart(): Promise<void> {
     await this.addToCartButton.click();
   }
 
-  async isProductNameVisible(productName: string) {
+  async isProductNameVisible(productName: string): Promise<boolean> {
     return await this.productTitle.filter({ hasText: productName }).isVisible();
   }
 }

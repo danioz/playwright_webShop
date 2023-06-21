@@ -21,27 +21,27 @@ export class HeaderBar {
         );
     }
 
-    async proceedToLogin() {
+    async proceedToLogin(): Promise<void> {
         await this.logInLink.click();
     }
 
-    async logOUt() {
+    async logOut(): Promise<void> {
         await this.logOutLink.click();
     }
 
-    async proceedToRegister() {
+    async proceedToRegister(): Promise<void> {
         await this.registerLink.click();
     }
 
-    async proceedToShoppingCart() {
+    async proceedToShoppingCart(): Promise<void> {
         await this.shoppingCartLink.click();
     }
 
-    async selectCategory(categoryName: string) {
+    async selectCategory(categoryName: string): Promise<void> {
         await this.categories.filter({ hasText: categoryName }).click();
     }
 
-    async verifyLoggedUser(email: string) {
+    async verifyLoggedUser(email: string): Promise<void> {
         await expect(this.accountLink).toHaveText(email);
     }
 }

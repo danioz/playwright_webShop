@@ -12,11 +12,11 @@ export class BasePage {
     this.headerBar = new HeaderBar(page);
   }
 
-  async navigate(path: string) {
+  async navigate(path: string): Promise<void> {
     await this.page.goto(path);
   }
 
-  async openUrl() {
+  async openUrl(): Promise<void> {
     await this.page.goto("");
   }
 }

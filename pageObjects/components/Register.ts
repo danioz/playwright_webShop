@@ -28,7 +28,7 @@ export class Register {
         email: string,
         password: string,
         confirmPassword: string
-    ) {
+    ): Promise<void> {
         switch (gender) {
             case "M":
                 await this.maleRadioButton.click();
@@ -46,6 +46,4 @@ export class Register {
         await this.confirmPasswordTextBox.fill(confirmPassword);
         await this.registerButton.click();
     }
-
-
 }

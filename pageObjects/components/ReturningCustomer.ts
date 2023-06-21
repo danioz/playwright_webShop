@@ -11,7 +11,7 @@ export class ReturningCustomer {
         this.loginButton = page.locator(".login-button");
     }
 
-    async logInToApplication(login: string, password: string) {
+    async logInToApplication(login: string, password: string): Promise<void> {
         await this.emailTextBox.waitFor({ state: "visible" });
         await this.emailTextBox.fill(login);
         await this.passwordTextBox.fill(password);
