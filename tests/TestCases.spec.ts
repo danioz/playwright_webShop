@@ -8,7 +8,6 @@ test.afterEach(async ({ homePage, page }) => {
 test("Successful register a new user with valid credentials", async ({
   homePage,
   registerPage,
-  page,
 }) => {
   //region Arrange
   let userData: {
@@ -58,7 +57,6 @@ test("Successful register a new user with valid credentials", async ({
 test("Successful user login with valid credentials", async ({
   homePage,
   loginPage,
-  page,
 }) => {
   //region Arrange
   const login = "d.zet@gmail.test.com";
@@ -86,7 +84,6 @@ test.only("Verify price of added items to a cart", async ({
   loginPage,
   productsPage,
   shoppingCartPage,
-  page,
 }) => {
   //region Arrange
   const login = "d.zet@gmail.test.com";
