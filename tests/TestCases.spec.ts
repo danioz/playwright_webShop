@@ -1,7 +1,10 @@
 import { test } from "./BaseTest.spec";
 import { faker } from "@faker-js/faker";
 
-test.afterEach(async ({ homePage, page }) => {
+const login = "d.zet@gmail.test.com";
+const password = "Password1234!";
+
+test.afterEach(async ({ homePage}) => {
   await homePage.headerBar.logOut();
 });
 
@@ -58,11 +61,6 @@ test("Successful user login with valid credentials", async ({
   homePage,
   loginPage,
 }) => {
-  //region Arrange
-  const login = "d.zet@gmail.test.com";
-  const password = "Password1234!";
-  //endregion
-
   //region Act
   await test.step("Navigate to login screen", async () => {
     await homePage.headerBar.proceedToLogin();
@@ -86,8 +84,6 @@ test.only("Verify price of added items to a cart", async ({
   shoppingCartPage,
 }) => {
   //region Arrange
-  const login = "d.zet@gmail.test.com";
-  const password = "Password1234!";
   const category = "Apparel & Shoes";
   const productName = "Men's Wrinkle Free Long Sleeve";
   const sizeName = "Large";
