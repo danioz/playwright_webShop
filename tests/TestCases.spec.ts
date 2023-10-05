@@ -4,31 +4,33 @@ import { faker } from "@faker-js/faker";
 const login = "d.zet@gmail.test.com";
 const password = "Password1234!";
 
-test.afterEach(async ({ homePage}) => {
+test.afterEach(async ({ homePage }) => {
   await homePage.headerBar.logOut();
 });
+
+interface IUserData {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  password: string;
+}
 
 test("Successful register a new user with valid credentials", async ({
   homePage,
   registerPage,
 }) => {
   //region Arrange
-  let userData: {
-    firstName: string;
-    lastName: string;
-    emailAddress: string;
-    password: string;
-  } = {
+  let userData: IUserData = {
     firstName: "",
     lastName: "",
     emailAddress: "",
     password: "",
-  }
-;
+  };
   await test.step("Prepare a new user data", async () => {
     userData.firstName = faker.name.firstName();
     userData.lastName = faker.name.lastName();
-    userData.emailAddress = userData.firstName + userData.lastName + "@gmail.test.com";
+    userData.emailAddress =
+      userData.firstName + userData.lastName + "@gmail.test.com";
     userData.password = faker.random.alphaNumeric(10);
   });
   //endregion
