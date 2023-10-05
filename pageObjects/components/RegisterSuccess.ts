@@ -1,15 +1,13 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class RegisterSuccess {
-    readonly registerNotification: Locator;
+  readonly registerNotification = this.page.locator(".result");
 
-    constructor(page: Page) {
-        this.registerNotification = page.locator(".result");
-    }
+  constructor(public readonly page: Page) {}
 
-    async verifyRegistrationCompletion(newEmail: string): Promise<void> {
-        await expect(this.registerNotification).toHaveText(
-            "Your registration completed"
-        );
-    }
+  async verifyRegistrationCompletion(newEmail: string): Promise<void> {
+    await expect(this.registerNotification).toHaveText(
+      "Your registration completed"
+    );
+  }
 }

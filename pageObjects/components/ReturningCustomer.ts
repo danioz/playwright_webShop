@@ -1,20 +1,16 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class ReturningCustomer {
-    readonly emailTextBox: Locator;
-    readonly passwordTextBox: Locator;
-    readonly loginButton: Locator;
+  readonly emailTextBox = this.page.locator("#Email");
+  readonly passwordTextBox = this.page.locator("#Password");
+  readonly loginButton = this.page.locator(".login-button");
 
-    constructor(page: Page) {
-        this.emailTextBox = page.locator("#Email");
-        this.passwordTextBox = page.locator("#Password");
-        this.loginButton = page.locator(".login-button");
-    }
+  constructor(public readonly page: Page) {}
 
-    async logInToApplication(login: string, password: string): Promise<void> {
-        await this.emailTextBox.waitFor({ state: "visible" });
-        await this.emailTextBox.fill(login);
-        await this.passwordTextBox.fill(password);
-        await this.loginButton.click();
-    }
+  async logInToApplication(login: string, password: string): Promise<void> {
+    await this.emailTextBox.waitFor({ state: "visible" });
+    await this.emailTextBox.fill(login);
+    await this.passwordTextBox.fill(password);
+    await this.loginButton.click();
+  }
 }
