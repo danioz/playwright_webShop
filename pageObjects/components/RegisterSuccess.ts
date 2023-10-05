@@ -1,7 +1,7 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export class RegisterSuccess {
-  readonly registerNotification = this.page.locator(".result");
+  readonly registerNotification: Locator = this.page.locator(".result");
 
   constructor(public readonly page: Page) {}
 

@@ -1,20 +1,20 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class HeaderBar {
-  readonly logInLink = this.page.locator(".ico-login", { hasText: "Log in" });
-  readonly logOutLink = this.page.locator(".ico-logout", {
+  readonly logInLink: Locator = this.page.locator(".ico-login", { hasText: "Log in" });
+  readonly logOutLink: Locator = this.page.locator(".ico-logout", {
     hasText: "Log out",
   });
-  readonly registerLink = this.page.locator(".ico-register", {
+  readonly registerLink: Locator = this.page.locator(".ico-register", {
     hasText: "Register",
   });
-  readonly shoppingCartLink = this.page.locator("a.ico-cart > .cart-label", {
+  readonly shoppingCartLink: Locator = this.page.locator("a.ico-cart > .cart-label", {
     hasText: "Shopping cart",
   });
-  readonly categories = this.page.locator(
+  readonly categories: Locator = this.page.locator(
     ".block-category-navigation .list li"
   );
-  readonly accountLink = this.page.locator(
+  readonly accountLink: Locator = this.page.locator(
     "div[class='header-links'] a[class='account']"
   );
 

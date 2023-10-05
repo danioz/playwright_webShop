@@ -2,25 +2,25 @@ import { expect, Locator, Page } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class ShoppingCartPage extends BasePage {
-  readonly firstProductUnitPrice = this.page.locator(
+  readonly firstProductUnitPrice: Locator = this.page.locator(
     "tr.cart-item-row:first-child span.product-unit-price"
   );
-  readonly firstProductQuantity = this.page.locator(
+  readonly firstProductQuantity: Locator = this.page.locator(
     "tr.cart-item-row:first-child input[class='qty-input']"
   );
-  readonly termOfServiceCheckbox = this.page.locator("#termsofservice");
-  readonly checkoutButton = this.page.locator("#checkout");
-  readonly subTotalPrice = this.page.locator(
+  readonly termOfServiceCheckbox: Locator = this.page.locator("#termsofservice");
+  readonly checkoutButton: Locator = this.page.locator("#checkout");
+  readonly subTotalPrice: Locator = this.page.locator(
     "//span[.='Sub-Total:']/ancestor::tr//span[@class='product-price']"
   );
-  readonly removeFromCartFirstCheckbox = this.page.locator(
+  readonly removeFromCartFirstCheckbox: Locator = this.page.locator(
     "tr.cart-item-row:first-child input[name='removefromcart']"
   );
-  readonly updateShoppingCartButton = this.page.locator(
+  readonly updateShoppingCartButton: Locator = this.page.locator(
     "input[value='Update shopping cart']"
   );
-  readonly firstCartItemRow = this.page.locator("tr.cart-item-row:first-child");
-  readonly cartItems = this.page.locator("tr.cart-item-row");
+  readonly firstCartItemRow: Locator = this.page.locator("tr.cart-item-row:first-child");
+  readonly cartItems: Locator = this.page.locator("tr.cart-item-row");
 
   constructor(page: Page) {
     super(page);

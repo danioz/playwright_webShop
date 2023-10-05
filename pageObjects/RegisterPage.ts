@@ -4,8 +4,8 @@ import { Register } from "./components/Register";
 import { RegisterSuccess } from "./components/RegisterSuccess";
 
 export class RegisterPage extends BasePage {
-  readonly register = new Register(this.page);
-  readonly registerSuccess = new RegisterSuccess(this.page);
+  readonly register: Register = new Register(this.page);
+  readonly registerSuccess: RegisterSuccess = new RegisterSuccess(this.page);
 
   constructor(page: Page) {
     super(page);

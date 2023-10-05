@@ -1,14 +1,14 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class Register {
-  readonly maleRadioButton = this.page.locator("#gender-male");
-  readonly femaleRadioButton = this.page.locator("#gender-female");
-  readonly firstNameTextBox = this.page.locator("#FirstName");
-  readonly lastNameTextBox = this.page.locator("#LastName");
-  readonly emailTextBox = this.page.locator("#Email");
-  readonly passwordTextBox = this.page.locator("#Password");
-  readonly confirmPasswordTextBox = this.page.locator("#ConfirmPassword");
-  readonly registerButton = this.page.locator("#register-button");
+  readonly maleRadioButton: Locator = this.page.locator("#gender-male");
+  readonly femaleRadioButton: Locator = this.page.locator("#gender-female");
+  readonly firstNameTextBox: Locator = this.page.locator("#FirstName");
+  readonly lastNameTextBox: Locator = this.page.locator("#LastName");
+  readonly emailTextBox: Locator = this.page.locator("#Email");
+  readonly passwordTextBox: Locator = this.page.locator("#Password");
+  readonly confirmPasswordTextBox: Locator = this.page.locator("#ConfirmPassword");
+  readonly registerButton: Locator = this.page.locator("#register-button");
 
   constructor(public readonly page: Page) {}
 

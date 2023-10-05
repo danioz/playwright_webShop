@@ -1,15 +1,15 @@
-import { Page } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class ProductsPage extends BasePage {
-  readonly products = this.page.locator(".product-item");
-  readonly productTitle = this.page.locator(
+  readonly products: Locator = this.page.locator(".product-item");
+  readonly productTitle: Locator = this.page.locator(
     ".product-item>.details>h2.product-title"
   );
-  readonly nextButton = this.page.locator("li[class='next-page'] a");
-  readonly quantityInput = this.page.locator("input.qty-input");
-  readonly sizeList = this.page.locator("select[id^='product_attribute_']");
-  readonly addToCartButton = this.page.locator(
+  readonly nextButton: Locator = this.page.locator("li[class='next-page'] a");
+  readonly quantityInput: Locator = this.page.locator("input.qty-input");
+  readonly sizeList: Locator = this.page.locator("select[id^='product_attribute_']");
+  readonly addToCartButton: Locator = this.page.locator(
     "input[id^='add-to-cart-button-']"
   );
 
