@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { UserInformation } from "../../model/user";
 
 export class Register {
   readonly maleRadioButton: Locator = this.page.locator("#gender-male");
@@ -12,29 +13,22 @@ export class Register {
 
   constructor(public readonly page: Page) {}
 
-  async registerNewUser(
-    gender: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    confirmPassword: string
-  ): Promise<void> {
-    switch (gender) {
-      case "M":
+  async registerNewUser(userInformation: UserInformation): Promise<void> {
+    switch (userInformation.gender) {
+      case "male":
         await this.maleRadioButton.click();
         break;
-      case "F":
+      case "female":
         await this.femaleRadioButton.click();
         break;
       default:
         throw new Error("Gender field value is invalid.");
     }
-    await this.firstNameTextBox.fill(firstName);
-    await this.lastNameTextBox.fill(lastName);
-    await this.emailTextBox.fill(email);
-    await this.passwordTextBox.fill(password);
-    await this.confirmPasswordTextBox.fill(confirmPassword);
+    await this.firstNameTextBox.fill(userInformation.firstName);
+    await this.lastNameTextBox.fill(userInformation.lastName);
+    await this.emailTextBox.fill(userInformation.emailAddress);
+    await this.passwordTextBox.fill(userInformation.password);
+    await this.confirmPasswordTextBox.fill(userInformation.password);
     await this.registerButton.click();
   }
 }

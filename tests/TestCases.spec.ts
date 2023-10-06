@@ -1,5 +1,6 @@
 import { test } from "./BaseTest.spec";
-import { faker } from "@faker-js/faker";
+import { DataFactory } from "../data/dataFactory";
+import { UserInformation } from '../model/user';
 
 const login = "d.zet@gmail.test.com";
 const password = "Password1234!";
@@ -8,44 +9,22 @@ test.afterEach(async ({ homePage }) => {
   await homePage.headerBar.logOut();
 });
 
-interface IUserData {
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
-  password: string;
-}
-
 test("Successful register a new user with valid credentials", async ({
   homePage,
   registerPage,
 }) => {
   //region Arrange
-  let userData: IUserData = {
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    password: "",
-  };
+  let userData: UserInformation;
+  
   await test.step("Prepare a new user data", async () => {
-    userData.firstName = faker.name.firstName();
-    userData.lastName = faker.name.lastName();
-    userData.emailAddress =
-      userData.firstName + userData.lastName + "@gmail.test.com";
-    userData.password = faker.random.alphaNumeric(10);
+    userData = DataFactory.getUserInformation()
   });
   //endregion
 
   //region Act
   await test.step("Input a new user data", async () => {
     await homePage.headerBar.proceedToRegister();
-    await registerPage.register.registerNewUser(
-      "M",
-      userData.firstName,
-      userData.lastName,
-      userData.emailAddress,
-      userData.password,
-      userData.password
-    );
+    await registerPage.register.registerNewUser(userData);
   });
   //endregion
 
