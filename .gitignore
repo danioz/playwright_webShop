@@ -4,3 +4,6 @@
 tests-examples
 tests/example.spec.ts
 .idea
+node_modules
+.vscode
+.pytest_cache
