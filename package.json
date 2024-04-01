@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "show-report": "npx playwright show-report",
+    "tests": "npx playwright test",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.35.1",
+    "prettier": "3.2.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

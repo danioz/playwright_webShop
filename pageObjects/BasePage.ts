@@ -1,11 +1,11 @@
-import { Page } from "@playwright/test";
-import { HeaderBar } from "./components/HeaderBar";
+import { Page } from '@playwright/test';
+import { HeaderBar } from './components/HeaderBar';
 
 export class BasePage {
   readonly page: Page;
   readonly headerBar: HeaderBar;
 
-  readonly url = "https://demowebshop.tricentis.com/";
+  readonly url = 'https://demowebshop.tricentis.com/';
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +17,6 @@ export class BasePage {
   }
 
   async openUrl(): Promise<void> {
-    await this.page.goto("");
+    await this.page.goto('');
   }
 }

@@ -1,6 +1,6 @@
-import { Page } from "@playwright/test";
-import { BasePage } from "./BasePage";
-import { ReturningCustomer } from "./components/ReturningCustomer";
+import { Page } from '@playwright/test';
+import { BasePage } from './BasePage';
+import { ReturningCustomer } from './components/ReturningCustomer';
 
 export class LoginPage extends BasePage {
   readonly returningCustomer: ReturningCustomer = new ReturningCustomer(this.page);

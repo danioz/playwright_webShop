@@ -1,22 +1,18 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from '@playwright/test';
 
 export class HeaderBar {
-  readonly logInLink: Locator = this.page.locator(".ico-login", { hasText: "Log in" });
-  readonly logOutLink: Locator = this.page.locator(".ico-logout", {
-    hasText: "Log out",
+  readonly logInLink: Locator = this.page.locator('.ico-login', { hasText: 'Log in' });
+  readonly logOutLink: Locator = this.page.locator('.ico-logout', {
+    hasText: 'Log out',
   });
-  readonly registerLink: Locator = this.page.locator(".ico-register", {
-    hasText: "Register",
+  readonly registerLink: Locator = this.page.locator('.ico-register', {
+    hasText: 'Register',
   });
-  readonly shoppingCartLink: Locator = this.page.locator("a.ico-cart > .cart-label", {
-    hasText: "Shopping cart",
+  readonly shoppingCartLink: Locator = this.page.locator('a.ico-cart > .cart-label', {
+    hasText: 'Shopping cart',
   });
-  readonly categories: Locator = this.page.locator(
-    ".block-category-navigation .list li"
-  );
-  readonly accountLink: Locator = this.page.locator(
-    "div[class='header-links'] a[class='account']"
-  );
+  readonly categories: Locator = this.page.locator('.block-category-navigation .list li');
+  readonly accountLink: Locator = this.page.locator("div[class='header-links'] a[class='account']");
 
   constructor(public readonly page: Page) {}
 

@@ -1,8 +1,11 @@
-import type { PlaywrightTestConfig } from "@playwright/test";
-import { devices } from "@playwright/test";
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
+import Env from './helpers/tests/env';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const config: PlaywrightTestConfig = {
-  testDir: "./tests",
+  testDir: './tests',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -11,19 +14,19 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: "html",
+  reporter: 'html',
   use: {
-    baseURL: "https://demowebshop.tricentis.com/",
+    baseURL: Env.URL,
     actionTimeout: 0,
-    trace: "retain-on-failure",
+    trace: 'retain-on-failure',
     // video: "retain-on-failure",
   },
 
   projects: [
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
 
@@ -70,7 +73,7 @@ const config: PlaywrightTestConfig = {
     // },
   ],
 
-  outputDir: "test-results/",
+  outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {
