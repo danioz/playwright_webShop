@@ -5,8 +5,6 @@ export class BasePage {
   readonly page: Page;
   readonly headerBar: HeaderBar;
 
-  readonly url = 'https://demowebshop.tricentis.com/';
-
   constructor(page: Page) {
     this.page = page;
     this.headerBar = new HeaderBar(page);
