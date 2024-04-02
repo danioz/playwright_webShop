@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { UserInformation } from '../../model/user';
+import { UserInformation } from '../../lib/model/user';
 
 export class Register {
   readonly maleRadioButton: Locator = this.page.locator('#gender-male');

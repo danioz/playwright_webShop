@@ -1,7 +1,7 @@
 import { test } from './BaseTest.spec';
-import { DataFactory } from '../data/dataFactory';
-import { UserInformation } from '../model/user';
-import Env from '../helpers/tests/env';
+import { DataFactory } from '@datafactory/dataFactory';
+import { UserInformation } from '@model/user';
+import Env from '@helpers/env';
 
 const login = Env.LOGIN!;
 const password = Env.PASSWORD!;
@@ -75,7 +75,6 @@ test.only('Verify price of added items to a cart', async ({ homePage, loginPage,
   await test.step('Verify total price of added item', async () => {
     await shoppingCartPage.verifySubTotalPrice();
   });
-  //endregion
 
   //Teardown
   await test.step('Delete items form a cart', async () => {

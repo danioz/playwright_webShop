@@ -1,10 +1,10 @@
 import { test as base } from '@playwright/test';
-import { HomePage } from '../pageObjects/HomePage';
-import { RegisterPage } from '../pageObjects/RegisterPage';
-import { LoginPage } from '../pageObjects/LoginPage';
-import { ProductsPage } from '../pageObjects/ProductsPage';
-import { ShoppingCartPage } from '../pageObjects/ShoppingCartPage';
-import { CheckoutOrderPage } from '../pageObjects/CheckoutOrderPage';
+import { HomePage } from '@pageObjects/HomePage';
+import { RegisterPage } from '@pageObjects/RegisterPage';
+import { LoginPage } from '@pageObjects/LoginPage';
+import { ProductsPage } from '@pageObjects/ProductsPage';
+import { ShoppingCartPage } from '@pageObjects/ShoppingCartPage';
+import { CheckoutOrderPage } from '@pageObjects/CheckoutOrderPage';
 
 // Declare the types of your fixtures.
 type MyFixtures = {

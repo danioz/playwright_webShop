@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@datafactory/*": ["lib/data/*"],
+      "@helpers/*": ["lib/helpers/*"],
+      "@pageObjects/*": ["pageObjects/*"],
+      "@model/*": ["lib/model/*"]
+    }
+  }
+}
